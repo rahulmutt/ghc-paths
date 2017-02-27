@@ -17,6 +17,7 @@ custom-setup
 
 library
         build-depends: base >= 3 && < 5
+                     , directory
         exposed-modules: GHC.Paths
 
 source-repository head

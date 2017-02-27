@@ -1,13 +1,9 @@
 {-# LANGUAGE CPP #-}
 
-module GHC.Paths (
-        ghc, ghc_pkg, libdir, docdir
-  ) where
+module GHC.Paths (libdir) where
 
-libdir, docdir, ghc, ghc_pkg :: FilePath
+import System.Directory
 
-libdir  = GHC_PATHS_LIBDIR
-docdir  = GHC_PATHS_DOCDIR
-
-ghc     = GHC_PATHS_GHC
-ghc_pkg = GHC_PATHS_GHC_PKG
+{-# NOINLINE libdir #-}
+libdir :: FilePath
+libdir  = unsafePerformIO $ getAppUserDataDirectory "eta"
